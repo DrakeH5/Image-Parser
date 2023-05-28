@@ -1,4 +1,7 @@
-function ImageParser(fileLocation){
+function ImageParser(fileLocation, pixilization = 1){
   var canvas = createCanvas()
-  drawImgToCanvas(fileLocation, canvas)
+  var imgSize = drawImgToCanvas(fileLocation, canvas)
+  console.log(imgSize)
+  collectionOfData = getData(canvas, imgSize[0], imgSize[1], pixilization)
+  console.log(collectionOfData)
 }
