@@ -1,0 +1,3 @@
+function ImagePaser(fileLocation: string){
+  
+}
