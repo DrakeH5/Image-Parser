@@ -9,13 +9,15 @@ function createCanvas() {
     return canvas
 }
 
-function drawImgToCanvas(imgSrc, canvas) {
+function drawImgToCanvas(imgSrc, canvas, _callback) {
     var ctx = canvas.getContext("2d", {willReadFrequently: true});
     let img = document.createElement('img');
     img.crossOrigin = "Anonymous";
     img.src = imgSrc
-    img.style.width = "auto"
-    img.style.height = "auto"
-    ctx.drawImage(img, 0, 0, img.width, img.height);
-    return [img.width, img.height]
+    img.onload = function(){
+        img.style.width = "auto"
+        img.style.height = "auto"
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        _callback(img.width, img.height)
+    }
 }
